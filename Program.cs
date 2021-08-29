@@ -41,7 +41,7 @@ namespace Serialization
 
         private static void Main()
         {
-            //Localspace 1
+            //Program 1
             {
                 List<Player> playerList = new();
                 Console.Write("\nPlease insert player count : ");
@@ -73,7 +73,7 @@ namespace Serialization
                 Console.WriteLine("Player list has been serialized");
             }
 
-            //Localspace 2
+            //Program 2
             {
                 List<Player> playerList = new();
                 //Deserialization
