@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Serialization
+namespace PlayerBase
 {
     [Serializable]
     public class Player

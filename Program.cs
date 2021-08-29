@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PlayerBase;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -21,21 +22,6 @@ namespace Serialization
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-            }
-        }
-
-        public static void DeSerializePlayerObjects(string path, out List<Player> players)
-        {
-            try
-            {
-                using FileStream fs = new(path, FileMode.Open);
-                BinaryFormatter formatter = new();
-                players = (List<Player>)formatter.Deserialize(fs);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                players = null;
             }
         }
 
@@ -71,24 +57,6 @@ namespace Serialization
                 //Serialization
                 SerializePlayerObjects(defaultFilePath, playerList);
                 Console.WriteLine("Player list has been serialized");
-            }
-
-            //Program 2
-            {
-                List<Player> playerList = new();
-                //Deserialization
-                DeSerializePlayerObjects(defaultFilePath, out playerList);
-                if (playerList != null)
-                {
-                    for (int i = 0; i < playerList.Count; i++)
-                    {
-                        Console.WriteLine("--- Player " + (i + 1) + " ---");
-                        Console.WriteLine("Name\t: " + playerList[i].Name);
-                        Console.WriteLine("Class\t: " + playerList[i].PlayerClass);
-                        Console.WriteLine("Score\t: " + playerList[i].Score);
-                        Console.WriteLine();
-                    }
-                }
             }
         }
     }
